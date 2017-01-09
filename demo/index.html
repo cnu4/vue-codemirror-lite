@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Vue2 CodeMirror Lite for JS</title>
+    <style> [v-cloak] { display:none; } body { padding: 30px; font-family: Helvetica, Arial, sans-serif; font-weight: 300; } h1, h2, h3 { font-weight: 300; }</style>
+  </head>
+  <body>
+    <h1>CodeMirror Component For Vue.js</h1>
+    <main v-cloak id="app">
+      <codemirror :value="code" @change="change" :options="options"></codemirror>
+    </main>
+
+    <h2>
+      <a href="https://github.com/cnu4/vue-codemirror-lite">Github</a>
+    </h2>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="node_modules/codemirror/mode/javascript/javascript.js"></script>
+    <script src="./bundle.js"></script>
+    <script>
+      var code = "function invariance(o) { \n" +
+        "  var p = o.p; \n" +
+        "  o.p = null; \n" +
+        "  return p; \n" +
+        "} \n\n" +
+        "var subtype_p = p \n" +
+        "var res = invariance(subtype_p); \n\n" +
+        "return res'` \n"
+      Vue.use(CodeMirror)
+      var app = new Vue({
+        el: '#app',
+        data: function () {
+          return {
+            code: code,
+            options: {
+              tabSize: 2,
+              lineNumbers: true,
+              lineWrapping: true,
+              line: true,
+              gutters: ['CodeMirror-linenumbers', 'CodeMirror-lint-markers']
+            }
+          }
+        },
+        methods: {
+          change: function (code) {
+            console.log('change', code)
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

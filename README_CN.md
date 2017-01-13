@@ -2,17 +2,15 @@
 
 [CodeMirror](http://codemirror.net/) Component For Vue.js (support 1.x and 2.x).
 
-[中文文档](https://cnu4.github.io/vue-codemirror-lite/blob/master/READNE_CN.md)
-
 ## Lightweight
 
-By default (to optimise bundle size) all modes and addons are not included. To enable them, see [Using Language Modes](#Using Language Modes and Addons).
+为了减少打包后的体积，所有的语言模式和插件在默认的情况下没有加载, 要使用它们，见 [Using Language Modes and Addons](#Using Language Modes and Addons).
 
 ## Demo
 
 Live Demo: [https://cnu4.github.io/vue-codemirror-lite](https://cnu4.github.io/vue-codemirror-lite)
 
-To run the demo locally, run
+本地运行实例：
 
 `npm install && npm run dev`
 
@@ -40,7 +38,7 @@ export default {
 }
 ```
 
-### Usage in Component
+### Usage in component
 
 ```html
 
@@ -85,20 +83,20 @@ export default {
 
 ## Properties
 
- - `value` `String` the editor value
- - `options` `Object (newValue)` options passed to the CodeMirror instance
+ - `value` `String` 编辑器的值
+ - `options` `Object (newValue)` 传递给 CodeMirror 实例的配置选项
 
-See the [CodeMirror Configuration](http://codemirror.net/doc/manual.html#config) for the available options.
+前往 [CodeMirror Configuration](http://codemirror.net/doc/manual.html#config) 查看更多可用选项
 
 ## Using Language Modes and Addons
 
-Several [language modes](https://codemirror.net/mode/) are included with CodeMirror.
+CodeMirror 中包含了许多的语言模式
 
-By default (to optimise bundle size) all modes and addons are not included. To enable:
+默认情况下所有的语言模式和插件在默认的情况下没有加载， 启用它们：
 
- - install `vue-codemirror-lite` 
- - require the language modes or addons after you require `vue-codemirror-lite` itself
- - set the mode option in the options object
+ - 安装 `vue-codemirror-lite`
+ - require `vue-codemirror-lite` 后 require 一个语言模式或者插件
+ - 在 options 对象中配置 mode 选项
 
 ```html
 <template>
@@ -123,9 +121,9 @@ By default (to optimise bundle size) all modes and addons are not included. To e
 </script>
 ```
 
-See the demo source which implement JavaScript and vue syntax highlighting and JavaScript hint addon.
+demo 目录下的例子实现了 JavaScript 和 vue 语法高亮和 JavaScript 代码提示
 
-See the [CodeMirror Manual](http://codemirror.net/doc/manual.html) for the more modes and addons.
+前往 [CodeMirror Manual](http://codemirror.net/doc/manual.html) 查看更多的语言模式和插件.
 
 
 ## License

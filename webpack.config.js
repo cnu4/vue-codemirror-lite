@@ -1,13 +1,12 @@
 var path = require('path')
 var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './index.js',
+  entry: './demo/demo.js',
   output: {
-    filename: './demo/bundle.js',
-    libraryTarget: 'var',
-    library: 'CodeMirror',
-    chunkFilename: './demo/[id].js'
+    path: 'demo-dist',
+    filename: 'demo.js'
   },
   module: {
     loaders: [
@@ -21,6 +20,9 @@ module.exports = {
       }
     ]
   },
+  externals: {
+    vue: 'Vue'
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env':{
@@ -32,7 +34,11 @@ module.exports = {
         warnings: false
       }
     }),
-    new webpack.optimize.OccurrenceOrderPlugin()
+    new webpack.optimize.OccurrenceOrderPlugin(),
+    new HtmlWebpackPlugin({
+      template: 'demo/index.html',
+      filename: 'index.html'
+    })
   ],
   devServer: {
     contentBase: path.join(__dirname, './demo'),

@@ -6,11 +6,6 @@
   var CodeMirror = require('codemirror/lib/codemirror.js')
   require('codemirror/lib/codemirror.css')
   export default {
-    data: function () {
-      return {
-        content: ''
-      }
-    },
     props: {
       value: String,
       options: {
@@ -75,7 +70,6 @@
 
 <style>
   .CodeMirror-code {
-    line-height: 1.6em;
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   }
 </style>

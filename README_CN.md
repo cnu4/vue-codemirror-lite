@@ -107,7 +107,7 @@ CodeMirror 中包含了许多的语言模式
 </template>
 
 <script>
-  import { codemirror } from 'vue-codemirror'
+  import { codemirror } from 'vue-codemirror-lite'
   require('codemirror/mode/javascript/javascript')
   require('codemirror/mode/vue/vue')
 

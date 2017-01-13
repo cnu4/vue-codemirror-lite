@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server --open",
     "build": "webpack --config webpack.config.js",
-    "deploy": "git push origin `git subtree split --prefix demo-dist master`:gh-pages --force"
+    "deploy": "git subtree push --prefix=demo-dist origin gh-pages"
   },
   "repository": {
     "type": "git",

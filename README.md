@@ -2,7 +2,7 @@
 
 [CodeMirror](http://codemirror.net/) Component For Vue.js (support 1.x and 2.x).
 
-[中文文档](https://cnu4.github.io/vue-codemirror-lite/blob/master/READNE_CN.md)
+[中文文档](https://github.com/cnu4/vue-codemirror-lite/blob/master/README_CN.md)
 
 ## Lightweight
 
@@ -109,7 +109,7 @@ By default (to optimise bundle size) all modes and addons are not included. To e
 </template>
 
 <script>
-  import { codemirror } from 'vue-codemirror'
+  import { codemirror } from 'vue-codemirror-lite'
   require('codemirror/mode/javascript/javascript')
   require('codemirror/mode/vue/vue')
 

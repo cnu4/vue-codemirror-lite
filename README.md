@@ -6,7 +6,7 @@
 
 ## Lightweight
 
-By default (to optimise bundle size) all modes and addons are not included. To enable them, see [Using Language Modes](#Using Language Modes and Addons).
+By default (to optimise bundle size) all modes and addons are not included. To enable them, see [Using Language Modes and Addons](#using-language-modes-and-addons).
 
 ## Demo
 

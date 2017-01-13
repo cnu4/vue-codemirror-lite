@@ -4,7 +4,7 @@
 
 ## Lightweight
 
-为了减少打包后的体积，所有的语言模式和插件在默认的情况下没有加载, 要使用它们，见 [Using Language Modes and Addons](#Using Language Modes and Addons).
+为了减少打包后的体积，所有的语言模式和插件在默认的情况下没有加载, 要使用它们，见 [Using Language Modes and Addons](#using-language-modes-and-addons).
 
 ## Demo
 

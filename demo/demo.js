@@ -5,7 +5,7 @@ Vue.use(VueCodeMirror)
 
 var codes = {
   javascript: 'var component = {\n\tname: "vue-codemirror-lite",\n\tauthor: "Fangxw",\n\trepo: "https://github.com/cnu4/vue-codemirror-lite"\n}\n\n//Press Ctrl-Space to trigger hint',
-  vue: '<template>\n<codemirror :value="code"></codemirror>\n</template>\n\n<script>\nimport { codemirror } from "vue-codemirror"\nexport default {\n\tdata () {\n\t\treturn {\n\t\t\tcode: "const str = \"hello world\""\n\t\t}\n\t},\n\tcomponents: {\n\t\tcodemirror\n\t}\n}\n</script>'
+  vue: '<template>\n<codemirror :value="code"></codemirror>\n</template>\n\n<script>\nimport { codemirror } from "vue-codemirror-lite"\nexport default {\n\tdata () {\n\t\treturn {\n\t\t\tcode: "const str = \"hello world\""\n\t\t}\n\t},\n\tcomponents: {\n\t\tcodemirror\n\t}\n}\n</script>'
 }
 
 // require htmlmixed mode

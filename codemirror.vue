@@ -19,11 +19,20 @@
         }
       },
     },
+    data: function () {
+      return {
+        skipNextChangeEvent: false
+      }
+    },
     ready: function () {
       var _this = this
       this.editor = CodeMirror.fromTextArea(this.$el, this.options)
       this.editor.setValue(this.value)
       this.editor.on('change', function(cm) {
+        if (_this.skipNextChangeEvent) {
+          _this.skipNextChangeEvent = false
+          return
+        }
         _this.value = cm.getValue()
         if (!!_this.$emit) {
           _this.$emit('change', cm.getValue())
@@ -35,6 +44,10 @@
       this.editor = CodeMirror.fromTextArea(this.$el, this.options)
       this.editor.setValue(this.value)
       this.editor.on('change', function(cm) {
+        if (_this.skipNextChangeEvent) {
+          _this.skipNextChangeEvent = false
+          return
+        }
         if (!!_this.$emit) {
           _this.$emit('change', cm.getValue())
           _this.$emit('input', cm.getValue())
@@ -45,6 +58,7 @@
       'value': function (newVal, oldVal) {
         var editorValue = this.editor.getValue()
         if (newVal !== editorValue) {
+          this.skipNextChangeEvent = true
           var scrollInfo = this.editor.getScrollInfo()
           this.editor.setValue(newVal)
           this.editor.scrollTo(scrollInfo.left, scrollInfo.top)

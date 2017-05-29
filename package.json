@@ -1,6 +1,6 @@
 {
   "name": "vue-codemirror-lite",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Lite Codemirror component for Vue.js",
   "main": "index.js",
   "scripts": {

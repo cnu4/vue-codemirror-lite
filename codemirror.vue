@@ -7,7 +7,10 @@
   require('codemirror/lib/codemirror.css')
   export default {
     props: {
-      value: String,
+      value: {
+        type: String,
+        default: ''
+      },
       options: {
         type: Object,
         default: function () {

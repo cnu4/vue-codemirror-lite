@@ -1,10 +1,14 @@
 var CodeMirror = require('codemirror/lib/codemirror.js')
-var CmComponent = require('./codemirror.vue')
+import CmComponent from './codemirror.vue'
 
-module.exports = {
-  CodeMirror: CodeMirror,
-  codemirror: CmComponent,
-  install: function (Vue) {
-    Vue.component('codemirror', CmComponent)
-  }
+function install (Vue) {
+  Vue.component('codemirror', CmComponent)
+}
+
+export default {
+  install
+}
+export {
+  CodeMirror,
+  CmComponent as codemirror
 }

@@ -32,9 +32,9 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.26.0",
     "style-loader": "^0.13.1",
-    "vue-loader": "^10.0.2",
+    "vue-loader": "^13.3.0",
     "vue-template-compiler": "^2.1.8",
-    "webpack": "^2.2.0-rc.3",
+    "webpack": "^3.7.1",
     "webpack-dev-server": "^1.16.2"
   }
 }

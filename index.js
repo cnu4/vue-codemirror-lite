@@ -1,4 +1,4 @@
-var CodeMirror = require('codemirror/lib/codemirror.js')
+var CodeMirror = require('codemirror/lib/codemirror')
 var CmComponent = require('./codemirror.vue')
 
 CmComponent = CmComponent.default || CmComponent

@@ -3,4 +3,4 @@ node_modules
 npm-debug.log
 debug.log
 package-lock.json
-demo-dist
+demo/dist

@@ -9,13 +9,15 @@ var codes = {
 }
 
 // require htmlmixed mode
-require('codemirror/mode/vue/vue.js')
-require('codemirror/mode/javascript/javascript.js')
+require('codemirror/mode/vue/vue')
+require('codemirror/mode/javascript/javascript')
 
 // require hint addon for javacript
-require('codemirror/addon/hint/show-hint.js')
+require('codemirror/addon/hint/show-hint')
 require('codemirror/addon/hint/show-hint.css')
-require('codemirror/addon/hint/javascript-hint.js')
+require('codemirror/addon/hint/javascript-hint')
+
+require('./demo.css')
 
 var app = new Vue({
   el: '#app',
@@ -34,7 +36,7 @@ var app = new Vue({
         tabSize: 2,
         lineNumbers: true,
         lineWrapping: true,
-        extraKeys: {'Ctrl-Space': 'autocomplete'},
+        extraKeys: { 'Ctrl-Space': 'autocomplete' },
       }
     }
   },

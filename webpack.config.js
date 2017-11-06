@@ -5,7 +5,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   entry: './demo/demo.js',
   output: {
-    path: 'demo-dist',
+    path: path.resolve('./demo/dist/'),
     filename: 'demo.js'
   },
   module: {
@@ -25,7 +25,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env':{
+      'process.env': {
         'NODE_ENV': JSON.stringify('dev')
       }
     }),

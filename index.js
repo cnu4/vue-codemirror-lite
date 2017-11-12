@@ -1,7 +1,6 @@
 var CodeMirror = require('codemirror/lib/codemirror.js')
 var CmComponent = require('./codemirror.vue')
 
-console.log(CmComponent)
 CmComponent = CmComponent.default || CmComponent
 
 module.exports = {

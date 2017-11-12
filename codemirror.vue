@@ -22,64 +22,55 @@
         }
       },
     },
-    data: function () {
-      return {
-        skipNextChangeEvent: false
-      }
+    created: function () {
+      this._onChangeHandler = function (cm) {
+        if (this.$emit) {
+          var v = cm.getValue();
+          this.$emit('change', v)
+          this.$emit('input', v)
+        }
+      }.bind(this);
     },
     ready: function () {
-      var _this = this
-      this.editor = CodeMirror.fromTextArea(this.$el, this.options)
-      this.editor.setValue(this.value)
-      this.editor.on('change', function(cm) {
-        if (_this.skipNextChangeEvent) {
-          _this.skipNextChangeEvent = false
-          return
-        }
-        _this.value = cm.getValue()
-        if (!!_this.$emit) {
-          _this.$emit('change', cm.getValue())
-        }
-      })
+      if (!this.editor) {
+        this.editor = CodeMirror.fromTextArea(this.$el, this.options)
+        this.editor.setValue(this.value)
+        this.editor.on('change', this._onChangeHandler)
+      }
     },
     mounted: function () {
-      var _this = this
-      this.editor = CodeMirror.fromTextArea(this.$el, this.options)
-      this.editor.setValue(this.value)
-      this.editor.on('change', function(cm) {
-        if (_this.skipNextChangeEvent) {
-          _this.skipNextChangeEvent = false
-          return
-        }
-        if (!!_this.$emit) {
-          _this.$emit('change', cm.getValue())
-          _this.$emit('input', cm.getValue())
-        }
-      })
+      if (!this.editor) {
+        this.editor = CodeMirror.fromTextArea(this.$el, this.options)
+        this.editor.setValue(this.value)
+        this.editor.on('change', this._onChangeHandler)
+      }
     },
     watch: {
-      'value': function (newVal, oldVal) {
-        var editorValue = this.editor.getValue()
-        if (newVal !== editorValue) {
-          this.skipNextChangeEvent = true
-          var scrollInfo = this.editor.getScrollInfo()
-          this.editor.setValue(newVal)
-          this.editor.scrollTo(scrollInfo.left, scrollInfo.top)
+      'value': function (newVal) {
+        if (this.editor) {
+          var editorValue = this.editor.getValue()
+          if (newVal !== editorValue) {
+            var scrollInfo = this.editor.getScrollInfo()
+            this.editor.off('change', this._onChangeHandler)
+            this.editor.setValue(newVal)
+            this.editor.scrollTo(scrollInfo.left, scrollInfo.top)
+            this.editor.on('change', this._onChangeHandler)
+          }
         }
       },
-      'options': function (newOptions, oldVal) {
-        if (typeof newOptions === 'object') {
-          for (var optionName in newOptions) {
-            if (newOptions.hasOwnProperty(optionName)) {
-              this.editor.setOption(optionName, newOptions[optionName])
-            }
-          }
+      'options': function (newOptions) {
+        var editor = this.editor;
+        if (editor) {
+          Object.keys(newOptions).forEach(function (optionName) {
+            editor.setOption(optionName, newOptions[optionName])
+          });
         }
       }
     },
     beforeDestroy: function () {
       if (this.editor) {
         this.editor.toTextArea()
+        this.editor = undefined
       }
     }
   }

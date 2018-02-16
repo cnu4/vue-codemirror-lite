@@ -1,5 +1,7 @@
 <template>
-  <textarea></textarea>
+  <div class="vue-codemirror-wrap">
+    <textarea></textarea>
+  </div>
 </template>
 
 <script>
@@ -29,7 +31,7 @@
     },
     ready: function () {
       var _this = this
-      this.editor = CodeMirror.fromTextArea(this.$el, this.options)
+      this.editor = CodeMirror.fromTextArea(this.$el.querySelector('textarea'), this.options)
       this.editor.setValue(this.value)
       this.editor.on('change', function(cm) {
         if (_this.skipNextChangeEvent) {
@@ -44,7 +46,7 @@
     },
     mounted: function () {
       var _this = this
-      this.editor = CodeMirror.fromTextArea(this.$el, this.options)
+      this.editor = CodeMirror.fromTextArea(this.$el.querySelector('textarea'), this.options)
       this.editor.setValue(this.value)
       this.editor.on('change', function(cm) {
         if (_this.skipNextChangeEvent) {

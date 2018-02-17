@@ -2,10 +2,12 @@ var path = require('path')
 var webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
-module.exports = {
+var isProduction = process.env.NODE_ENV === 'production'
+
+var config = {
   entry: './demo/demo.js',
   output: {
-    path: 'demo-dist',
+    path: path.join(__dirname, './demo-dist'),
     filename: 'demo.js'
   },
   module: {
@@ -29,11 +31,6 @@ module.exports = {
         'NODE_ENV': JSON.stringify('dev')
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new HtmlWebpackPlugin({
       template: 'demo/index.html',
@@ -42,7 +39,19 @@ module.exports = {
   ],
   devServer: {
     contentBase: path.join(__dirname, './demo'),
-    compress: true,
+    compress: false,
     port: 9090
   }
 }
+
+if (isProduction) {
+  config.plugins.push(
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
+  )
+}
+
+module.exports = config

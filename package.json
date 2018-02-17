@@ -4,9 +4,10 @@
   "description": "Lite Codemirror component for Vue.js",
   "main": "index.js",
   "scripts": {
-    "dev": "node_modules/.bin/webpack-dev-server --open",
-    "build": "webpack --config webpack.config.js",
-    "deploy": "git subtree push --prefix=demo-dist origin gh-pages"
+    "dev": "cross-env NODE_ENV=development node_modules/.bin/webpack-dev-server --open",
+    "build:demo": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "build": "webpack --config webpack.config.umd.js",
+    "deploy": "cd demo-dist && git add --all && git commit -m \"Release at $(date)\" && git push"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "codemirror": "^5.22.0"
   },
   "devDependencies": {
+    "cross-env": "^5.1.3",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.26.0",

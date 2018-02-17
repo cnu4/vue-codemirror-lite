@@ -16,14 +16,16 @@ To run the demo locally, run
 
 `npm install && npm run dev`
 
+View demo in browser on [JSFiddle](https://jsfiddle.net/cnu4/r33vk618)
+
 ## Installation
+
+### npm
 
 `npm install vue-codemirror-lite`
 
-## Usage
-
 ```js
-// Require in Webpack
+// Install the plugin
 var Vue = require('vue')
 var VueCodeMirror = require('vue-codemirror-lite')
 
@@ -39,6 +41,28 @@ export default {
   }
 }
 ```
+
+### browser
+
+Include in the page
+
+`<script src="https://unpkg.com/vue-codemirror-lite/dist/vuecodemirror.min.js"></script>`
+
+install into vue
+
+`Vue.use(VueCodeMirror)`
+
+or use as components
+
+`Vue.component('codemirror', VueCodeMirror.codemirror)`
+
+CodeMirror itself was built into `vuecodemirror.min.js`, get `CodeMirror` by
+
+`window.CodeMirror = VueCodeMirror.CodeMirror`
+
+View demo in browser on [JSFiddle](https://jsfiddle.net/cnu4/r33vk618)
+
+## Usage
 
 ### Usage in Component
 
@@ -97,7 +121,7 @@ Several [language modes](https://codemirror.net/mode/) are included with CodeMir
 By default (to optimise bundle size) all modes and addons are not included. To enable:
 
  - install `vue-codemirror-lite` 
- - require the language modes or addons after you require `vue-codemirror-lite` itself
+ - require the language modes or addons after you require `vue-codemirror-lite` itself (If use browser version, you need to include necessary script file of mode and addons. View demo in browser on [JSFiddle](https://jsfiddle.net/cnu4/r33vk618))
  - set the mode option in the options object
 
 ```html

@@ -14,14 +14,16 @@ Live Demo: [https://cnu4.github.io/vue-codemirror-lite](https://cnu4.github.io/v
 
 `npm install && npm run dev`
 
-## Installation
+查看在浏览器运行的例子 [JSFiddle](https://jsfiddle.net/cnu4/r33vk618)
+
+## 安装
+
+### npm
 
 `npm install vue-codemirror-lite`
 
-## Usage
-
 ```js
-// Require in Webpack
+// Install the plugin
 var Vue = require('vue')
 var VueCodeMirror = require('vue-codemirror-lite')
 
@@ -37,6 +39,29 @@ export default {
   }
 }
 ```
+
+### 浏览器
+
+在页面中引用打包后的文件
+
+`<script src="https://unpkg.com/vue-codemirror-lite/dist/vuecodemirror.min.js"></script>`
+
+安装
+
+`Vue.use(VueCodeMirror)`
+
+或者注册为一个组件
+
+`Vue.component('codemirror', VueCodeMirror.codemirror)`
+
+CodeMirror 被打包进了 `vuecodemirror.min.js`，通过下面语句获取 `CodeMirror`
+
+`window.CodeMirror = VueCodeMirror.CodeMirror`
+
+查看在浏览器运行的例子 [JSFiddle](https://jsfiddle.net/cnu4/r33vk618)
+
+
+## 用法
 
 ### Usage in component
 
@@ -88,14 +113,14 @@ export default {
 
 前往 [CodeMirror Configuration](http://codemirror.net/doc/manual.html#config) 查看更多可用选项
 
-## Using Language Modes and Addons
+## 使用语言模式和插件
 
 CodeMirror 中包含了许多的语言模式
 
 默认情况下所有的语言模式和插件在默认的情况下没有加载， 启用它们：
-
+v
  - 安装 `vue-codemirror-lite`
- - require `vue-codemirror-lite` 后 require 一个语言模式或者插件
+ - require `vue-codemirror-lite` 后 require 一个语言模式或者插件 (如果你是在浏览器中使用了构建后的版本，你需要手动引入 CodeMirror 相关 mode 和插件的脚本文件，完整的例子看这里 [JSFiddle](https://jsfiddle.net/cnu4/r33vk618))
  - 在 options 对象中配置 mode 选项
 
 ```html

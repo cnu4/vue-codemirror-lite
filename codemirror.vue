@@ -48,6 +48,11 @@
       var _this = this
       this.editor = CodeMirror.fromTextArea(this.$el.querySelector('textarea'), this.options)
       this.editor.setValue(this.value)
+      // Fixes missing editor. See https://stackoverflow.com/questions/8349571/codemirror-editor-is-not-loading-content-until-clicked
+      setTimeout(function() {
+        _this.editor.refresh()
+      }, 0)
+      
       this.editor.on('change', function(cm) {
         if (_this.skipNextChangeEvent) {
           _this.skipNextChangeEvent = false
